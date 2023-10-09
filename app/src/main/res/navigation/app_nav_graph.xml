@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav_graph"
+    app:startDestination="@id/fruitsFragment">
+
+    <fragment
+        android:id="@+id/fruitsFragment"
+        android:name="app.web.valiantsoftware.fruits.FruitsFragment"
+        android:label="fragment_fruits"
+        tools:layout="@layout/fragment_fruits" >
+        <action
+            android:id="@+id/action_fruitsFragment_to_fruitDetailFragment"
+            app:destination="@id/fruitDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fruitDetailFragment"
+        android:name="app.web.valiantsoftware.fruits.FruitDetailFragment"
+        android:label="fragment_fruit_detail"
+        tools:layout="@layout/fragment_fruit_detail" />
+</navigation>
