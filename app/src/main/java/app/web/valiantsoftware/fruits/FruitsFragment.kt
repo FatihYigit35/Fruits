@@ -5,17 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import app.web.valiantsoftware.fruits.databinding.FragmentFruitsBinding
 
 class FruitsFragment : Fragment() {
+    private lateinit var binding: FragmentFruitsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fruits, container, false)
+    ): View {
+        binding = FragmentFruitsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 }

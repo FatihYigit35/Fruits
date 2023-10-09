@@ -1,11 +1,12 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
     namespace = "app.web.valiantsoftware.fruits"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "app.web.valiantsoftware.fruits"
