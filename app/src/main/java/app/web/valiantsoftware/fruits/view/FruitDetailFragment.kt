@@ -1,4 +1,4 @@
-package app.web.valiantsoftware.fruits
+package app.web.valiantsoftware.fruits.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -19,6 +19,13 @@ class FruitDetailFragment : Fragment() {
     ): View {
         binding = FragmentFruitDetailBinding.inflate(inflater,container,false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        arguments?.let {
+            binding.fruitId = FruitDetailFragmentArgs.fromBundle(it).fruitId
+        }
     }
 
 }
