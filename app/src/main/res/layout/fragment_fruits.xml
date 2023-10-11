@@ -32,7 +32,7 @@
             </androidx.recyclerview.widget.RecyclerView>
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textViewError"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Error! Please try again."
@@ -43,7 +43,7 @@
 
             <ProgressBar
                 style="@style/Widget.AppCompat.ProgressBar"
-                android:id="@+id/prgressBar"
+                android:id="@+id/progressBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"

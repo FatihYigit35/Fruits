@@ -35,7 +35,7 @@ class FruitRecyclerAdapter(private val fruitList: ArrayList<Fruit>) :
         }
     }
 
-    fun fruitListReflesh(newFruitList: ArrayList<Fruit>) {
+    fun fruitListReflesh(newFruitList: List<Fruit>) {
         fruitList.clear()
         fruitList.addAll(newFruitList)
         notifyDataSetChanged()
