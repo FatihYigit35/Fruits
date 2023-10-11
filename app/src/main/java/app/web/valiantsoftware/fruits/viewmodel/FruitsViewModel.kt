@@ -4,12 +4,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import app.web.valiantsoftware.fruits.model.Fruit
 
-class FruitsViewModel: ViewModel() {
+class FruitsViewModel : ViewModel() {
     val fruitsLiveData = MutableLiveData<List<Fruit>>()
     val errorMessageLiveData = MutableLiveData<Boolean>()
     val progressBarLiveData = MutableLiveData<Boolean>()
 
-    fun refleshData(){
+    fun refleshData() {
         val banana = Fruit(
             "Banana",
             "A banana is the common name for a type of fruit and also the name for the herbaceous plants that grow it. " +
@@ -19,7 +19,8 @@ class FruitsViewModel: ViewModel() {
             "23g",
             "1.1g",
             "0.3g",
-            "https://raw.githubusercontent.com/FatihYigit35/JSONDatas/main/FruitsApp/banana.png")
+            "https://raw.githubusercontent.com/FatihYigit35/JSONDatas/main/FruitsApp/banana.png"
+        )
 
         val walnut = Fruit(
             "Walnut",
@@ -30,7 +31,8 @@ class FruitsViewModel: ViewModel() {
             "23g",
             "1.1g",
             "0.3g",
-            "https://raw.githubusercontent.com/FatihYigit35/JSONDatas/main/FruitsApp/banana.png")
+            "https://raw.githubusercontent.com/FatihYigit35/JSONDatas/main/FruitsApp/banana.png"
+        )
 
         val apple = Fruit(
             "Apple",
@@ -41,9 +43,10 @@ class FruitsViewModel: ViewModel() {
             "23g",
             "1.1g",
             "0.3g",
-            "https://raw.githubusercontent.com/FatihYigit35/JSONDatas/main/FruitsApp/banana.png")
+            "https://raw.githubusercontent.com/FatihYigit35/JSONDatas/main/FruitsApp/banana.png"
+        )
 
-        val fruitList = arrayListOf(banana,walnut,apple)
+        val fruitList = arrayListOf(banana, walnut, apple)
         fruitsLiveData.value = fruitList
         errorMessageLiveData.value = false
         progressBarLiveData.value = false
