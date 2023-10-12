@@ -20,7 +20,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_launcher_background"
@@ -35,15 +34,15 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivDetail" />
 
         <TextView
             android:id="@+id/tvDetaiFruitDescription"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:padding="4dp"
             android:text="Description"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +57,6 @@
             android:text="Calories"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDetaiFruitDescription" />
 
@@ -70,7 +68,6 @@
             android:text="Carbohydrate"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDetaiFruitCalories" />
 
@@ -82,7 +79,6 @@
             android:text="Protein"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDetaiFruitCarbohydrate" />
 
@@ -94,7 +90,6 @@
             android:text="Fat"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDetaiFruitProtein" />
     </androidx.constraintlayout.widget.ConstraintLayout>

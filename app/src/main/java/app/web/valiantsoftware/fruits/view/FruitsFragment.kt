@@ -47,39 +47,39 @@ class FruitsFragment : Fragment() {
 
     }
 
-    fun observeLiveData() {
+    private fun observeLiveData() {
         with(viewModel) {
             with(binding) {
-                fruitsLiveData.observe(viewLifecycleOwner, Observer {
+                fruitsLiveData.observe(viewLifecycleOwner) {
                     it?.let {
                         recyclerView.visibility = View.VISIBLE
                         recyclerAdapter.fruitListReflesh(it)
                     }
-                })
+                }
 
-                errorMessageLiveData.observe(viewLifecycleOwner, Observer {
+                errorMessageLiveData.observe(viewLifecycleOwner) {
                     it?.let {
-                        if(it){
+                        if (it) {
                             recyclerView.visibility = View.GONE
                             progressBar.visibility = View.GONE
                             textViewError.visibility = View.VISIBLE
-                        }else{
+                        } else {
                             textViewError.visibility = View.GONE
                         }
                     }
-                })
+                }
 
-                progressBarLiveData.observe(viewLifecycleOwner, Observer {
+                progressBarLiveData.observe(viewLifecycleOwner) {
                     it?.let {
-                        if(it){
+                        if (it) {
                             recyclerView.visibility = View.GONE
                             textViewError.visibility = View.GONE
                             progressBar.visibility = View.VISIBLE
-                        }else{
+                        } else {
                             progressBar.visibility = View.GONE
                         }
                     }
-                })
+                }
 
             }
         }
@@ -87,9 +87,5 @@ class FruitsFragment : Fragment() {
 
     }
 
-    fun gotoFruitDetail(view: View, fruitId: String) {
-        val id = Integer.parseInt(fruitId)
-        Navigation.findNavController(view)
-            .navigate(FruitsFragmentDirections.actionFruitsFragmentToFruitDetailFragment(id))
-    }
+
 }

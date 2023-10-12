@@ -1,10 +1,13 @@
 package app.web.valiantsoftware.fruits.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import app.web.valiantsoftware.fruits.databinding.CardDesignBinding
 import app.web.valiantsoftware.fruits.model.Fruit
+import app.web.valiantsoftware.fruits.view.FruitsFragmentDirections
 
 class FruitRecyclerAdapter(private val fruitList: ArrayList<Fruit>) :
     RecyclerView.Adapter<FruitRecyclerAdapter.FruitViewHolder>() {
@@ -29,7 +32,7 @@ class FruitRecyclerAdapter(private val fruitList: ArrayList<Fruit>) :
                 //TODO: görsel eklenecek
 
                 cvFruit.setOnClickListener {
-
+                    gotoFruitDetail(it, 0)
                 }
             }
         }
@@ -39,6 +42,15 @@ class FruitRecyclerAdapter(private val fruitList: ArrayList<Fruit>) :
         fruitList.clear()
         fruitList.addAll(newFruitList)
         notifyDataSetChanged()
+    }
+
+    private fun gotoFruitDetail(view: View, fruitId: Int) {
+        Navigation
+            .findNavController(view)
+            .navigate(
+                FruitsFragmentDirections
+                    .actionFruitsFragmentToFruitDetailFragment(fruitId)
+            )
     }
 
 }
