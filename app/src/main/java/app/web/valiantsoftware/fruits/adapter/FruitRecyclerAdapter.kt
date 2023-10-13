@@ -7,6 +7,8 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import app.web.valiantsoftware.fruits.databinding.CardDesignBinding
 import app.web.valiantsoftware.fruits.model.Fruit
+import app.web.valiantsoftware.fruits.util.createPlaceholder
+import app.web.valiantsoftware.fruits.util.imageDownload
 import app.web.valiantsoftware.fruits.view.FruitsFragmentDirections
 
 class FruitRecyclerAdapter(private val fruitList: ArrayList<Fruit>) :
@@ -34,6 +36,8 @@ class FruitRecyclerAdapter(private val fruitList: ArrayList<Fruit>) :
                 cvFruit.setOnClickListener {
                     gotoFruitDetail(it, 0)
                 }
+
+                ivCardFruit.imageDownload(fruitList[position].image, createPlaceholder(holder.itemView.context))
             }
         }
     }
