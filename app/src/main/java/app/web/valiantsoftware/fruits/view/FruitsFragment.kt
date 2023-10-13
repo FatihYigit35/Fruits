@@ -5,9 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.web.valiantsoftware.fruits.adapter.FruitRecyclerAdapter
 import app.web.valiantsoftware.fruits.databinding.FragmentFruitsBinding
@@ -36,11 +34,19 @@ class FruitsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.refleshData()
+        viewModel.refreshData()
 
         with(binding) {
             recyclerView.layoutManager = LinearLayoutManager(context)
             recyclerView.adapter = recyclerAdapter
+
+            swiperefreshlayout.setOnRefreshListener {
+                progressBar.visibility = View.VISIBLE
+                textViewError.visibility = View.GONE
+                recyclerView.visibility = View.GONE
+                viewModel.refreshData()
+                swiperefreshlayout.isRefreshing = false
+            }
         }
 
         observeLiveData()
