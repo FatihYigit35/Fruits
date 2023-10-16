@@ -1,5 +1,6 @@
 package app.web.valiantsoftware.fruits.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,6 +43,7 @@ class FruitRecyclerAdapter(private val fruitList: ArrayList<Fruit>) :
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun fruitListReflesh(newFruitList: List<Fruit>) {
         fruitList.clear()
         fruitList.addAll(newFruitList)
