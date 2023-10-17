@@ -76,4 +76,7 @@ dependencies {
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
+
+    //SharedPreferences
+    implementation("androidx.preference:preference-ktx:1.2.1")
 }
