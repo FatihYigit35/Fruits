@@ -21,5 +21,5 @@ interface FruitDAO {
     suspend fun deleteAllFruit()
 
     @Delete
-    suspend fun deleteFruit()
+    suspend fun deleteFruit(fruit: Fruit)
 }
