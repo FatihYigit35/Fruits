@@ -35,7 +35,7 @@ class FruitRecyclerAdapter(private val fruitList: ArrayList<Fruit>) :
                 //TODO: görsel eklenecek
 
                 cvFruit.setOnClickListener {
-                    gotoFruitDetail(it, 0)
+                    gotoFruitDetail(it, fruitList[position].uuid)
                 }
 
                 ivCardFruit.imageDownload(fruitList[position].image, createPlaceholder(holder.itemView.context))
