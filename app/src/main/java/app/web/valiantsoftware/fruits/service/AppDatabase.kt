@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import app.web.valiantsoftware.fruits.model.Fruit
 
-@Database(entities = [Fruit::class], version = 1)
+@Database(entities = [Fruit::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun fruitDao(): FruitDAO
 
@@ -22,9 +22,8 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
-        private fun createDatabase(context: Context) =
-            Room.databaseBuilder(
-                context.applicationContext, AppDatabase::class.java, "app_database"
-            ).build()
+        private fun createDatabase(context: Context) = Room.databaseBuilder(
+            context, AppDatabase::class.java, "app_database"
+        ).build()
     }
 }
