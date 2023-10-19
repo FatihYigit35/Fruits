@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Fruits</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="shared_preferences_key_time">time</string>
+
 </resources>

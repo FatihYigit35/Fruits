@@ -1,6 +1,7 @@
 package app.web.valiantsoftware.fruits.viewmodel
 
 import android.app.Application
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import app.web.valiantsoftware.fruits.model.Fruit
 import app.web.valiantsoftware.fruits.service.AppDatabase
@@ -19,8 +20,19 @@ class FruitsViewModel(application: Application) : BaseViewModel(application) {
     private val fruitApiService = FruitAPIService()
     private val disposable = CompositeDisposable()
     private val sharedPreferences = AppSharedPreferences(getApplication())
+    private val nanoTimeToMinutes = 60 * 1000 * 1000 * 1000L
+    private val refreshTime = 10 * nanoTimeToMinutes
 
     fun refreshData() {
+        val savedTime = sharedPreferences.getTime()
+        if (savedTime != null && savedTime != 0L && System.nanoTime() - savedTime < refreshTime) {
+            getDataFromRoom()
+        } else {
+            getDataFromRetrofit()
+        }
+    }
+
+    fun refreshFromInternet(){
         getDataFromRetrofit()
     }
 
@@ -35,6 +47,7 @@ class FruitsViewModel(application: Application) : BaseViewModel(application) {
                 .subscribeWith(object : DisposableSingleObserver<List<Fruit>>() {
                     override fun onSuccess(t: List<Fruit>) {
                         insertFruitsToRoom(t)
+                        Toast.makeText(getApplication(),"Data came from the internet.",Toast.LENGTH_SHORT).show()
                     }
 
                     override fun onError(e: Throwable) {
@@ -47,13 +60,24 @@ class FruitsViewModel(application: Application) : BaseViewModel(application) {
         )
     }
 
-    private fun showFruits(fruits: List<Fruit>){
+    private fun getDataFromRoom() {
+        progressBarLiveData.value = true
+
+        launch {
+            val dao = AppDatabase(getApplication()).fruitDao()
+            val fruitsList = dao.getAllFruit()
+            showFruits(fruitsList)
+            Toast.makeText(getApplication(),"Data came from local database",Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun showFruits(fruits: List<Fruit>) {
         fruitsLiveData.value = fruits
         errorMessageLiveData.value = false
         progressBarLiveData.value = false
     }
 
-    private fun insertFruitsToRoom(fruits: List<Fruit>){
+    private fun insertFruitsToRoom(fruits: List<Fruit>) {
         launch {
             val dao = AppDatabase(getApplication()).fruitDao()
             dao.deleteAllFruit()

@@ -44,7 +44,7 @@ class FruitsFragment : Fragment() {
                 progressBar.visibility = View.VISIBLE
                 textViewError.visibility = View.GONE
                 recyclerView.visibility = View.GONE
-                viewModel.refreshData()
+                viewModel.refreshFromInternet()
                 swiperefreshlayout.isRefreshing = false
             }
         }
