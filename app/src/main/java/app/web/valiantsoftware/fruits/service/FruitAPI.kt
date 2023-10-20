@@ -10,6 +10,6 @@ interface FruitAPI {
     //BASE_URL -> https://raw.githubusercontent.com/
     //FatihYigit35/JSONDatas/main/FruitsApp/fruits.json
 
-    @GET("FatihYigit35/JSONDatas/main/FruitsApp/fruits.json")
+    @GET("FatihYigit35/JSONDatas/main/FruitsVegetablesNutsApp/Fruits/fruits.json")
     fun getFruit(): Single<List<Fruit>>
 }
