@@ -1,6 +1,6 @@
-package app.web.valiantsoftware.fruits.service
+package app.web.valiantsoftware.fruitsvegetablesnutsapp.service
 
-import app.web.valiantsoftware.fruits.model.Fruit
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.model.Fruit
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

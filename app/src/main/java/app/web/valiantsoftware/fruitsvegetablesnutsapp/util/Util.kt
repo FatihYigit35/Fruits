@@ -1,9 +1,10 @@
-package app.web.valiantsoftware.fruits.util
+package app.web.valiantsoftware.fruitsvegetablesnutsapp.util
 
 import android.content.Context
 import android.widget.ImageView
+import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
-import app.web.valiantsoftware.fruits.R
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
@@ -18,4 +19,9 @@ fun createPlaceholder(context: Context): CircularProgressDrawable{
         centerRadius = 40f
         start()
     }
+}
+
+@BindingAdapter("android:downloadImage")
+fun downloadImage(view: ImageView,url: String?){
+    view.imageDownload(url, createPlaceholder(view.context))
 }

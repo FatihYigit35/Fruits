@@ -7,7 +7,7 @@
 
         <variable
             name="fruitsFragment"
-            type="app.web.valiantsoftware.fruits.view.FruitsFragment" />
+            type="app.web.valiantsoftware.fruitsvegetablesnutsapp.view.FruitsFragment" />
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -18,7 +18,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".view.FruitsFragment">
+            tools:context="app.web.valiantsoftware.fruitsvegetablesnutsapp.view.FruitsFragment">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"

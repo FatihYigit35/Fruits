@@ -1,4 +1,4 @@
-package app.web.valiantsoftware.fruits.model
+package app.web.valiantsoftware.fruitsvegetablesnutsapp.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -33,6 +33,10 @@ data class Fruit(
     @ColumnInfo("fat")
     @SerializedName("fat")
     val fat: String?,
+
+    @ColumnInfo("vitamins")
+    @SerializedName("vitamins")
+    val vitamins: String?,
 
     @ColumnInfo("image")
     @SerializedName("image")

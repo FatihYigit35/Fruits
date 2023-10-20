@@ -1,4 +1,4 @@
-package app.web.valiantsoftware.fruits
+package app.web.valiantsoftware.fruitsvegetablesnutsapp
 
 import org.junit.Test
 

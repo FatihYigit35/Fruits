@@ -1,4 +1,4 @@
-package app.web.valiantsoftware.fruits.util
+package app.web.valiantsoftware.fruitsvegetablesnutsapp.util
 
 import android.content.Context
 import android.content.SharedPreferences

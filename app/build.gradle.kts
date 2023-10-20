@@ -3,14 +3,15 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs")
     id("com.google.devtools.ksp")
+    id("kotlin-kapt")
 }
 
 android {
-    namespace = "app.web.valiantsoftware.fruits"
+    namespace = "app.web.valiantsoftware.fruitsvegetablesnutsapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "app.web.valiantsoftware.fruits"
+        applicationId = "app.web.valiantsoftware.fruitsvegetablesnutsapp"
         minSdk = 26
         targetSdk = 33
         versionCode = 1

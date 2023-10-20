@@ -7,10 +7,6 @@ plugins {
 
 
 buildscript {
-    repositories {
-        google()
-    }
-
     dependencies {
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.7.4")
         classpath(kotlin("gradle-plugin", version = "1.9.10"))

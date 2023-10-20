@@ -1,4 +1,4 @@
-package app.web.valiantsoftware.fruits.view
+package app.web.valiantsoftware.fruitsvegetablesnutsapp.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import app.web.valiantsoftware.fruits.databinding.FragmentFruitDetailBinding
-import app.web.valiantsoftware.fruits.util.createPlaceholder
-import app.web.valiantsoftware.fruits.util.imageDownload
-import app.web.valiantsoftware.fruits.viewmodel.FruitDetailViewModel
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.databinding.FragmentFruitDetailBinding
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.util.createPlaceholder
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.util.imageDownload
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.viewmodel.FruitDetailViewModel
 
 class FruitDetailFragment : Fragment() {
     private lateinit var binding: FragmentFruitDetailBinding
@@ -44,15 +44,7 @@ class FruitDetailFragment : Fragment() {
             with(binding) {
                 fruitLiveData.observe(viewLifecycleOwner) {
                     it?.let {
-                        tvDetailFruitName.text = it.name
-                        tvDetaiFruitDescription.text = it.description
-                        tvDetaiFruitCalories.text = it.calories
-                        tvDetaiFruitCarbohydrate.text = it.carbohydrate
-                        tvDetaiFruitProtein.text = it.protein
-                        tvDetaiFruitFat.text = it.fat
-                        context?.let { context ->
-                            ivDetail.imageDownload(it.image, createPlaceholder(context))
-                        }
+                        fruit = it
                     }
                 }
             }

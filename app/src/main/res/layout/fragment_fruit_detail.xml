@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="fruit"
+            type="app.web.valiantsoftware.fruitsvegetablesnutsapp.model.Fruit" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.FruitDetailFragment">
+        tools:context="app.web.valiantsoftware.fruitsvegetablesnutsapp.view.FruitDetailFragment">
 
         <LinearLayout
             android:id="@+id/ivDetailLayout"
@@ -28,8 +31,10 @@
                 android:id="@+id/ivDetail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:contentDescription="TODO"
-                app:srcCompat="@drawable/ic_launcher_background" />
+                android:contentDescription="@string/fruit_image"
+                android:downloadImage="@{fruit.image}"
+                app:srcCompat="@drawable/ic_launcher_background"
+                tools:ignore="ImageContrastCheck" />
         </LinearLayout>
 
         <TextView
@@ -37,12 +42,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Fruit Name"
+            android:background="@drawable/boarder"
+            android:gravity="center"
+            android:hint="@string/fruit_name"
+            android:text="@{fruit.name}"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivDetailLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/ivDetailLayout"
+            tools:ignore="TextContrastCheck" />
 
         <TextView
             android:id="@+id/tvDetaiFruitDescription"
@@ -50,54 +59,89 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:padding="4dp"
-            android:text="Description"
+            android:gravity="center"
+            android:text="@{fruit.description}"
+            android:hint="@string/description"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDetailFruitName" />
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailFruitName"
+            tools:ignore="TextContrastCheck"
+            android:background="@drawable/boarder"/>
 
         <TextView
             android:id="@+id/tvDetaiFruitCalories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Calories"
+            android:text="@{fruit.calories}"
+            android:hint="@string/calories"
+            android:gravity="center"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDetaiFruitDescription" />
+            app:layout_constraintTop_toBottomOf="@+id/tvDetaiFruitDescription"
+            tools:ignore="TextContrastCheck"
+            android:background="@drawable/boarder"/>
 
         <TextView
             android:id="@+id/tvDetaiFruitCarbohydrate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Carbohydrate"
+            android:text="@{fruit.carbohydrate}"
+            android:hint="@string/carbohydrate"
+            android:gravity="center"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDetaiFruitCalories" />
+            app:layout_constraintTop_toBottomOf="@+id/tvDetaiFruitCalories"
+            tools:ignore="TextContrastCheck"
+            android:background="@drawable/boarder"/>
 
         <TextView
             android:id="@+id/tvDetaiFruitProtein"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Protein"
+            android:text="@{fruit.protein}"
+            android:hint="@string/protein"
+            android:gravity="center"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDetaiFruitCarbohydrate" />
+            app:layout_constraintTop_toBottomOf="@+id/tvDetaiFruitCarbohydrate"
+            tools:ignore="TextContrastCheck"
+            android:background="@drawable/boarder"/>
 
         <TextView
             android:id="@+id/tvDetaiFruitFat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Fat"
+            android:text="@{fruit.fat}"
+            android:hint="@string/fat"
             android:textSize="16sp"
+            android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDetaiFruitProtein" />
+            app:layout_constraintTop_toBottomOf="@+id/tvDetaiFruitProtein"
+            tools:ignore="TextContrastCheck"
+            android:background="@drawable/boarder"/>
+
+        <TextView
+            android:id="@+id/tvDetaiFruitVitamins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/vitamins"
+            android:text="@{fruit.vitamins}"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetaiFruitFat"
+            tools:ignore="TextContrastCheck"
+            android:background="@drawable/boarder"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

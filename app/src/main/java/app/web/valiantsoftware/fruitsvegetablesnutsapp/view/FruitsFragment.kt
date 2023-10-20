@@ -1,4 +1,4 @@
-package app.web.valiantsoftware.fruits.view
+package app.web.valiantsoftware.fruitsvegetablesnutsapp.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import app.web.valiantsoftware.fruits.adapter.FruitRecyclerAdapter
-import app.web.valiantsoftware.fruits.databinding.FragmentFruitsBinding
-import app.web.valiantsoftware.fruits.viewmodel.FruitsViewModel
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.adapter.FruitRecyclerAdapter
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.databinding.FragmentFruitsBinding
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.viewmodel.FruitsViewModel
 
 class FruitsFragment : Fragment() {
     private lateinit var binding: FragmentFruitsBinding
@@ -59,7 +59,7 @@ class FruitsFragment : Fragment() {
                 fruitsLiveData.observe(viewLifecycleOwner) {
                     it?.let {
                         recyclerView.visibility = View.VISIBLE
-                        recyclerAdapter.fruitListReflesh(it)
+                        recyclerAdapter.fruitListRefresh(it)
                     }
                 }
 

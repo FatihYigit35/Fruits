@@ -1,9 +1,9 @@
-package app.web.valiantsoftware.fruits.viewmodel
+package app.web.valiantsoftware.fruitsvegetablesnutsapp.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
-import app.web.valiantsoftware.fruits.model.Fruit
-import app.web.valiantsoftware.fruits.service.AppDatabase
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.model.Fruit
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.service.AppDatabase
 import kotlinx.coroutines.launch
 
 class FruitDetailViewModel(application: Application) : BaseViewModel(application) {

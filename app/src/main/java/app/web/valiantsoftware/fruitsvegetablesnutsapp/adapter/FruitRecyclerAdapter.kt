@@ -1,4 +1,4 @@
-package app.web.valiantsoftware.fruits.adapter
+package app.web.valiantsoftware.fruitsvegetablesnutsapp.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,20 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import app.web.valiantsoftware.fruits.databinding.CardDesignBinding
-import app.web.valiantsoftware.fruits.model.Fruit
-import app.web.valiantsoftware.fruits.util.createPlaceholder
-import app.web.valiantsoftware.fruits.util.imageDownload
-import app.web.valiantsoftware.fruits.view.FruitsFragmentDirections
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.databinding.CardDesignFruitBinding
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.model.Fruit
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.util.createPlaceholder
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.util.imageDownload
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.view.FruitsFragmentDirections
 
 class FruitRecyclerAdapter(private val fruitList: ArrayList<Fruit>) :
     RecyclerView.Adapter<FruitRecyclerAdapter.FruitViewHolder>() {
-    inner class FruitViewHolder(val binding: CardDesignBinding) :
+    inner class FruitViewHolder(val binding: CardDesignFruitBinding) :
         RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FruitViewHolder {
-        val binding: CardDesignBinding =
-            CardDesignBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            CardDesignFruitBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return FruitViewHolder(binding)
     }
 
@@ -30,27 +30,20 @@ class FruitRecyclerAdapter(private val fruitList: ArrayList<Fruit>) :
     override fun onBindViewHolder(holder: FruitViewHolder, position: Int) {
         with(holder) {
             with(binding) {
-                tvCardFruitName.text = fruitList[position].name
-                tvCardFruitDescription.text = fruitList[position].description
-                //TODO: görsel eklenecek
-
-                cvFruit.setOnClickListener {
-                    gotoFruitDetail(it, fruitList[position].uuid)
-                }
-
-                ivCardFruit.imageDownload(fruitList[position].image, createPlaceholder(holder.itemView.context))
+                fruit = fruitList[position]
+                adapter = this@FruitRecyclerAdapter
             }
         }
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun fruitListReflesh(newFruitList: List<Fruit>) {
+    fun fruitListRefresh(newFruitList: List<Fruit>) {
         fruitList.clear()
         fruitList.addAll(newFruitList)
         notifyDataSetChanged()
     }
 
-    private fun gotoFruitDetail(view: View, fruitId: Int) {
+    fun gotoFruitDetail(view: View, fruitId: Int) {
         Navigation
             .findNavController(view)
             .navigate(
@@ -58,5 +51,4 @@ class FruitRecyclerAdapter(private val fruitList: ArrayList<Fruit>) :
                     .actionFruitsFragmentToFruitDetailFragment(fruitId)
             )
     }
-
 }

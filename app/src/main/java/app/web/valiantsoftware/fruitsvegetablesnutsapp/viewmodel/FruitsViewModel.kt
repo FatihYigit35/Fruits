@@ -1,12 +1,12 @@
-package app.web.valiantsoftware.fruits.viewmodel
+package app.web.valiantsoftware.fruitsvegetablesnutsapp.viewmodel
 
 import android.app.Application
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
-import app.web.valiantsoftware.fruits.model.Fruit
-import app.web.valiantsoftware.fruits.service.AppDatabase
-import app.web.valiantsoftware.fruits.service.FruitAPIService
-import app.web.valiantsoftware.fruits.util.AppSharedPreferences
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.model.Fruit
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.service.AppDatabase
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.service.FruitAPIService
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.util.AppSharedPreferences
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver

@@ -1,10 +1,10 @@
-package app.web.valiantsoftware.fruits.view
+package app.web.valiantsoftware.fruitsvegetablesnutsapp.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import app.web.valiantsoftware.fruits.R
-import app.web.valiantsoftware.fruits.databinding.ActivityMainBinding
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.R
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

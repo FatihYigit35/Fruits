@@ -1,10 +1,10 @@
-package app.web.valiantsoftware.fruits.service
+package app.web.valiantsoftware.fruitsvegetablesnutsapp.service
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import app.web.valiantsoftware.fruits.model.Fruit
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.model.Fruit
 
 @Dao
 interface FruitDAO {

@@ -1,4 +1,4 @@
-package app.web.valiantsoftware.fruits.viewmodel
+package app.web.valiantsoftware.fruitsvegetablesnutsapp.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
