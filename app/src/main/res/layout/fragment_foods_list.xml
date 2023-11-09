@@ -5,9 +5,6 @@
 
     <data>
 
-        <variable
-            name="fruitsFragment"
-            type="app.web.valiantsoftware.fruitsvegetablesnutsapp.view.FruitsFragment" />
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -18,7 +15,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".view.FruitsFragment">
+            tools:context=".view.FoodsListFragment">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
@@ -42,8 +39,8 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ProgressBar
-                style="@style/Widget.AppCompat.ProgressBar"
                 android:id="@+id/progressBar"
+                style="@style/Widget.AppCompat.ProgressBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"

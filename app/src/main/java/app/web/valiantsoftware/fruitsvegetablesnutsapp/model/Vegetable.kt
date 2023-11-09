@@ -5,8 +5,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-@Entity("fruit")
-data class Fruit(
+@Entity("vegetable")
+data class Vegetable (
     //Using @SerializedName, we match the variables in the json file with the variables in our class.
     //It may not be necessary to use variable names if they are the same.
     @ColumnInfo("name")
@@ -40,7 +40,7 @@ data class Fruit(
     @ColumnInfo("image")
     @SerializedName("image")
     override val image: String?
-) : Foods(name,description,calories, carbohydrate, protein, fat, vitamins, image) {
+) : Foods(name, description, calories, carbohydrate, protein, fat, vitamins, image) {
     @PrimaryKey(autoGenerate = true)
     override var uuid: Int = 0
 }

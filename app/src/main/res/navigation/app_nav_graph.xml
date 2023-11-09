@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_nav_graph"
-    app:startDestination="@id/fruitsFragment">
+    app:startDestination="@id/foodsFragment">
 
     <fragment
         android:id="@+id/fruitsFragment"
@@ -22,5 +22,69 @@
         <argument
             android:name="fruit_id"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodsFragment"
+        android:name="app.web.valiantsoftware.fruitsvegetablesnutsapp.view.FoodsFragment"
+        android:label="fragment_foods"
+        tools:layout="@layout/fragment_foods" >
+        <action
+            android:id="@+id/action_foodsFragment_to_fruitsFragment"
+            app:destination="@id/fruitsFragment" />
+        <action
+            android:id="@+id/action_foodsFragment_to_nutsFragment"
+            app:destination="@id/nutsFragment" />
+        <action
+            android:id="@+id/action_foodsFragment_to_vegetablesFragment"
+            app:destination="@id/vegetablesFragment" />
+        <action
+            android:id="@+id/action_foodsFragment_to_foodsListFragment"
+            app:destination="@id/foodsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nutsFragment"
+        android:name="app.web.valiantsoftware.fruitsvegetablesnutsapp.view.NutsFragment"
+        android:label="fragment_nuts"
+        tools:layout="@layout/fragment_nuts" >
+        <action
+            android:id="@+id/action_nutsFragment_to_nutsDetailFragment"
+            app:destination="@id/nutsDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nutsDetailFragment"
+        android:name="app.web.valiantsoftware.fruitsvegetablesnutsapp.view.NutsDetailFragment"
+        android:label="fragment_nuts_detail"
+        tools:layout="@layout/fragment_nuts_detail" />
+    <fragment
+        android:id="@+id/vegetablesFragment"
+        android:name="app.web.valiantsoftware.fruitsvegetablesnutsapp.view.VegetablesFragment"
+        android:label="fragment_vegetables"
+        tools:layout="@layout/fragment_vegetables" >
+        <action
+            android:id="@+id/action_vegetablesFragment_to_vegetableDetailFragment"
+            app:destination="@id/vegetableDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vegetableDetailFragment"
+        android:name="app.web.valiantsoftware.fruitsvegetablesnutsapp.view.VegetableDetailFragment"
+        android:label="fragment_vegetable_detail"
+        tools:layout="@layout/fragment_vegetable_detail" />
+    <fragment
+        android:id="@+id/foodDetailFragment"
+        android:name="app.web.valiantsoftware.fruitsvegetablesnutsapp.view.FoodDetailFragment"
+        android:label="FoodDetailFragment"
+        tools:layout="@layout/fragment_food_detail"/>
+    <fragment
+        android:id="@+id/foodsListFragment"
+        android:name="app.web.valiantsoftware.fruitsvegetablesnutsapp.view.FoodsListFragment"
+        android:label="fragment_foods_list"
+        tools:layout="@layout/fragment_foods_list" >
+        <action
+            android:id="@+id/action_foodsListFragment_to_foodDetailFragment"
+            app:destination="@id/foodDetailFragment" />
+        <argument
+            android:name="chosen_foods"
+            app:argType="string"
+            android:defaultValue="0" />
     </fragment>
 </navigation>

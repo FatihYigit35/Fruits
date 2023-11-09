@@ -5,7 +5,7 @@ import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import app.web.valiantsoftware.fruitsvegetablesnutsapp.model.Fruit
 import app.web.valiantsoftware.fruitsvegetablesnutsapp.service.AppDatabase
-import app.web.valiantsoftware.fruitsvegetablesnutsapp.service.FruitAPIService
+import app.web.valiantsoftware.fruitsvegetablesnutsapp.service.FoodsAPIService
 import app.web.valiantsoftware.fruitsvegetablesnutsapp.util.AppSharedPreferences
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -17,14 +17,14 @@ class FruitsViewModel(application: Application) : BaseViewModel(application) {
     val fruitsLiveData = MutableLiveData<List<Fruit>>()
     val errorMessageLiveData = MutableLiveData<Boolean>()
     val progressBarLiveData = MutableLiveData<Boolean>()
-    private val fruitApiService = FruitAPIService()
+    private val fruitApiService = FoodsAPIService()
     private val disposable = CompositeDisposable()
     private val sharedPreferences = AppSharedPreferences(getApplication())
     private val nanoTimeToMinutes = 60 * 1000 * 1000 * 1000L
-    private val refreshTime = 10 * nanoTimeToMinutes
+    private val refreshTime = 30 * nanoTimeToMinutes
 
     fun refreshData() {
-        val savedTime = sharedPreferences.getTime()
+        val savedTime = sharedPreferences.getTimeFruit()
         if (savedTime != null && savedTime != 0L && System.nanoTime() - savedTime < refreshTime) {
             getDataFromRoom()
         } else {
@@ -32,7 +32,7 @@ class FruitsViewModel(application: Application) : BaseViewModel(application) {
         }
     }
 
-    fun refreshFromInternet(){
+    fun refreshFromInternet() {
         getDataFromRetrofit()
     }
 
@@ -41,13 +41,17 @@ class FruitsViewModel(application: Application) : BaseViewModel(application) {
 
         disposable.add(
             fruitApiService
-                .getData()
+                .getFruitsWithEN()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : DisposableSingleObserver<List<Fruit>>() {
                     override fun onSuccess(t: List<Fruit>) {
                         insertFruitsToRoom(t)
-                        Toast.makeText(getApplication(),"Data came from the internet.",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            getApplication(),
+                            "Data came from the internet.",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
 
                     override fun onError(e: Throwable) {
@@ -55,7 +59,6 @@ class FruitsViewModel(application: Application) : BaseViewModel(application) {
                         progressBarLiveData.value = false
                         e.printStackTrace()
                     }
-
                 })
         )
     }
@@ -67,7 +70,8 @@ class FruitsViewModel(application: Application) : BaseViewModel(application) {
             val dao = AppDatabase(getApplication()).fruitDao()
             val fruitsList = dao.getAllFruit()
             showFruits(fruitsList)
-            Toast.makeText(getApplication(),"Data came from local database",Toast.LENGTH_SHORT).show()
+            Toast.makeText(getApplication(), "Data came from local database", Toast.LENGTH_SHORT)
+                .show()
         }
     }
 
@@ -85,6 +89,6 @@ class FruitsViewModel(application: Application) : BaseViewModel(application) {
             showFruits(dao.getAllFruit())
         }
 
-        sharedPreferences.saveTime(System.nanoTime())
+        sharedPreferences.saveTimeFruit(System.nanoTime())
     }
 }
